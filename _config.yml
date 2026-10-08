@@ -1,5 +1,5 @@
-title: Your Name's Blog
-author: Your Name
+title: 0xcybersoldier Blog
+author: bara almustfa
 tagline: Personal Arabic Blog 
 description: A personal space to share my thoughts.
 iconURL: assets/default-icon.png
@@ -9,9 +9,8 @@ remote-theme: tarekeldeeb/arabic-blog-green-dark-theme
 permalink: :slug
 
 social:
-  twitter: your_name
-  github: your_name
-  linkedin: your_name
+  github: bara-almustafa
+  linkedin: bara almustafa
 
 defaults:
   - scope:
