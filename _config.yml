@@ -1,0 +1,9 @@
+title: 0xcybersoldier Blog
+description: A personal space to share my thoughts.
+author: bara almustafa
+theme: jekyll-theme-hacker
+show_downloads: false
+
+exclude:
+  - README.md
+  - vendor
