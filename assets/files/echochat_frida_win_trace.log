@@ -1,0 +1,224 @@
+[*] EchoChat base=0x10060c000  slide=0x60c000
+[*] gPlantedJob=0x1006b4fb0  flag_reveal=0x10062256c  normal=0x10062247c
+[*] flag_reveal - normal = 0xf0  (need job[0x8] == this)
+[*] hooks installed (incl. exception handler). Send a payload and foreground the app.
+
+===== FT_Load_Glyph ENTER =====
+  face=0x9451ecc00 glyph_index=2 load_flags=0x0  face_index=0x10000  IS_NAMED_INSTANCE=true   <-- needs TRUE to hit the GX_VAR OOB path
+[FT_Load_Glyph ret] 0x0
+  small allocs (<=64B) during load: 0
+  [no groomed job changed by this load]
+
+[render] ctx=0x944c31400  ctx[0x830]=job=0x944919060  (gPlantedJob=0x1006b4fb0  DIFFERENT)
+[render] job bytes: 944919060  f4 01 00 00 00 00 00 00 f0 00 00 00 00 00 00 00  ................
+944919070  f4 01 00 00 00 00 00 00 f0 00 00 00 00 00 00 00  ................
+944919080  04 01 00 00 00 00 00 00 2e 00 00 00 00 00 00 00  ................
+944919090  40 cc ed 44 09 00 00 00 ff ff ff ff ff ff ff ff  @..D............
+
+########## DISPATCH GATE ##########
+  base (ctx[0x28]) = 0x10062247c  (= normal_preview)
+  off  (job[0x8])  = 240  (0xf0)
+  target = base+off = 0x10062256c
+  flag_reveal       = 0x10062256c
+  >>>>> WIN: target == flag_reveal <<<<<
+###################################
+
+===== FT_Load_Glyph ENTER =====
+  face=0x945330000 glyph_index=2 load_flags=0x0  face_index=0x10000  IS_NAMED_INSTANCE=true   <-- needs TRUE to hit the GX_VAR OOB path
+[FT_Load_Glyph ret] 0x0
+  small allocs (<=64B) during load: 0
+  [no groomed job changed by this load]
+
+[render] ctx=0x9449b0a00  ctx[0x830]=job=0x94491b9e0  (gPlantedJob=0x1006b4fb0  DIFFERENT)
+[render] job bytes: 94491b9e0  f4 01 00 00 00 00 00 00 f0 00 00 00 00 00 00 00  ................
+94491b9f0  f4 01 00 00 00 00 00 00 f0 00 00 00 00 00 00 00  ................
+94491ba00  88 57 46 c3 02 00 00 00 03 00 00 00 00 00 00 00  .WF.............
+94491ba10  01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00  ................
+
+########## DISPATCH GATE ##########
+  base (ctx[0x28]) = 0x10062247c  (= normal_preview)
+  off  (job[0x8])  = 240  (0xf0)
+  target = base+off = 0x10062256c
+  flag_reveal       = 0x10062256c
+  >>>>> WIN: target == flag_reveal <<<<<
+###################################
+
+===== FT_Load_Glyph ENTER =====
+  face=0x9451ecc00 glyph_index=2 load_flags=0x0  face_index=0x10000  IS_NAMED_INSTANCE=true   <-- needs TRUE to hit the GX_VAR OOB path
+[FT_Load_Glyph ret] 0x0
+  small allocs (<=64B) during load: 0
+  [no groomed job changed by this load]
+
+[render] ctx=0x9449b1e00  ctx[0x830]=job=0x94481f060  (gPlantedJob=0x1006b4fb0  DIFFERENT)
+[render] job bytes: 94481f060  f4 01 00 00 00 00 00 00 f0 00 00 00 00 00 00 00  ................
+94481f070  f4 01 00 00 00 00 00 00 f0 00 00 00 00 00 00 00  ................
+94481f080  68 d1 e0 44 09 00 00 00 03 00 00 00 00 00 00 00  h..D............
+94481f090  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+
+########## DISPATCH GATE ##########
+  base (ctx[0x28]) = 0x10062247c  (= normal_preview)
+  off  (job[0x8])  = 240  (0xf0)
+  target = base+off = 0x10062256c
+  flag_reveal       = 0x10062256c
+  >>>>> WIN: target == flag_reveal <<<<<
+###################################
+
+===== FT_Load_Glyph ENTER =====
+  face=0x9451ecc00 glyph_index=2 load_flags=0x0  face_index=0x10000  IS_NAMED_INSTANCE=true   <-- needs TRUE to hit the GX_VAR OOB path
+[FT_Load_Glyph ret] 0x0
+  small allocs (<=64B) during load: 0
+  [no groomed job changed by this load]
+
+[render] ctx=0x9449b1e00  ctx[0x830]=job=0x94481c420  (gPlantedJob=0x1006b4fb0  DIFFERENT)
+[render] job bytes: 94481c420  f4 01 00 00 00 00 00 00 f0 00 00 00 00 00 00 00  ................
+94481c430  f4 01 00 00 00 00 00 00 f0 00 00 00 00 00 00 00  ................
+94481c440  36 5e 05 b4 1a cb 87 d7 78 a1 44 f4 3f ae ad 15  6^......x.D.?...
+94481c450  02 00 00 00 00 00 00 00 00 79 2f 45 09 00 00 00  .........y/E....
+
+########## DISPATCH GATE ##########
+  base (ctx[0x28]) = 0x10062247c  (= normal_preview)
+  off  (job[0x8])  = 240  (0xf0)
+  target = base+off = 0x10062256c
+  flag_reveal       = 0x10062256c
+  >>>>> WIN: target == flag_reveal <<<<<
+###################################
+
+===== FT_Load_Glyph ENTER =====
+  face=0x9451ecc00 glyph_index=2 load_flags=0x0  face_index=0x10000  IS_NAMED_INSTANCE=true   <-- needs TRUE to hit the GX_VAR OOB path
+[FT_Load_Glyph ret] 0x0
+  small allocs (<=64B) during load: 0
+  [no groomed job changed by this load]
+
+[render] ctx=0x9449b1e00  ctx[0x830]=job=0x94491aae0  (gPlantedJob=0x1006b4fb0  DIFFERENT)
+[render] job bytes: 94491aae0  f4 01 00 00 00 00 00 00 f0 00 00 00 00 00 00 00  ................
+94491aaf0  f4 01 00 00 00 00 00 00 f0 00 00 00 00 00 00 00  ................
+94491ab00  68 d9 9c 00 02 00 00 00 03 00 00 00 00 00 00 00  h...............
+94491ab10  01 00 00 00 00 00 00 00 02 00 00 00 00 00 00 00  ................
+
+########## DISPATCH GATE ##########
+  base (ctx[0x28]) = 0x10062247c  (= normal_preview)
+  off  (job[0x8])  = 240  (0xf0)
+  target = base+off = 0x10062256c
+  flag_reveal       = 0x10062256c
+  >>>>> WIN: target == flag_reveal <<<<<
+###################################
+
+===== FT_Load_Glyph ENTER =====
+  face=0x9451ecc00 glyph_index=2 load_flags=0x0  face_index=0x10000  IS_NAMED_INSTANCE=true   <-- needs TRUE to hit the GX_VAR OOB path
+[FT_Load_Glyph ret] 0x0
+  small allocs (<=64B) during load: 0
+  [no groomed job changed by this load]
+
+[render] ctx=0x9449b1e00  ctx[0x830]=job=0x944a5c660  (gPlantedJob=0x1006b4fb0  DIFFERENT)
+[render] job bytes: 944a5c660  f4 01 00 00 00 00 00 00 f0 00 00 00 00 00 00 00  ................
+944a5c670  f4 01 00 00 00 00 00 00 f0 00 00 00 00 00 00 00  ................
+944a5c680  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+944a5c690  20 00 a6 44 09 00 00 00 10 00 a6 44 09 00 00 00   ..D.......D....
+
+########## DISPATCH GATE ##########
+  base (ctx[0x28]) = 0x10062247c  (= normal_preview)
+  off  (job[0x8])  = 240  (0xf0)
+  target = base+off = 0x10062256c
+  flag_reveal       = 0x10062256c
+  >>>>> WIN: target == flag_reveal <<<<<
+###################################
+
+===== FT_Load_Glyph ENTER =====
+  face=0x9451ecc00 glyph_index=2 load_flags=0x0  face_index=0x10000  IS_NAMED_INSTANCE=true   <-- needs TRUE to hit the GX_VAR OOB path
+[FT_Load_Glyph ret] 0x0
+  small allocs (<=64B) during load: 0
+  [no groomed job changed by this load]
+
+[render] ctx=0x9449b1e00  ctx[0x830]=job=0x944a5c5e0  (gPlantedJob=0x1006b4fb0  DIFFERENT)
+[render] job bytes: 944a5c5e0  f4 01 00 00 00 00 00 00 f0 00 00 00 00 00 00 00  ................
+944a5c5f0  f4 01 00 00 00 00 00 00 f0 00 00 00 00 00 00 00  ................
+944a5c600  14 01 00 00 00 00 00 00 2a 00 00 00 00 00 00 00  ........*.......
+944a5c610  c0 df 81 44 09 00 00 00 ff ff ff ff ff ff ff ff  ...D............
+
+########## DISPATCH GATE ##########
+  base (ctx[0x28]) = 0x10062247c  (= normal_preview)
+  off  (job[0x8])  = 240  (0xf0)
+  target = base+off = 0x10062256c
+  flag_reveal       = 0x10062256c
+  >>>>> WIN: target == flag_reveal <<<<<
+###################################
+
+===== FT_Load_Glyph ENTER =====
+  face=0x9451ecc00 glyph_index=2 load_flags=0x0  face_index=0x10000  IS_NAMED_INSTANCE=true   <-- needs TRUE to hit the GX_VAR OOB path
+[FT_Load_Glyph ret] 0x0
+  small allocs (<=64B) during load: 0
+  [no groomed job changed by this load]
+
+[render] ctx=0x9449b1e00  ctx[0x830]=job=0x944a5d120  (gPlantedJob=0x1006b4fb0  DIFFERENT)
+[render] job bytes: 944a5d120  f4 01 00 00 00 00 00 00 f0 00 00 00 00 00 00 00  ................
+944a5d130  f4 01 00 00 00 00 00 00 f0 00 00 00 00 00 00 00  ................
+944a5d140  14 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+944a5d150  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+
+########## DISPATCH GATE ##########
+  base (ctx[0x28]) = 0x10062247c  (= normal_preview)
+  off  (job[0x8])  = 240  (0xf0)
+  target = base+off = 0x10062256c
+  flag_reveal       = 0x10062256c
+  >>>>> WIN: target == flag_reveal <<<<<
+###################################
+
+===== FT_Load_Glyph ENTER =====
+  face=0x945330000 glyph_index=2 load_flags=0x0  face_index=0x10000  IS_NAMED_INSTANCE=true   <-- needs TRUE to hit the GX_VAR OOB path
+[FT_Load_Glyph ret] 0x0
+  small allocs (<=64B) during load: 0
+  [no groomed job changed by this load]
+
+[render] ctx=0x9449b1e00  ctx[0x830]=job=0x944a5cb60  (gPlantedJob=0x1006b4fb0  DIFFERENT)
+[render] job bytes: 944a5cb60  f4 01 00 00 00 00 00 00 f0 00 00 00 00 00 00 00  ................
+944a5cb70  f4 01 00 00 00 00 00 00 f0 00 00 00 00 00 00 00  ................
+944a5cb80  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+944a5cb90  20 05 a6 44 09 00 00 00 e0 04 a6 44 09 00 00 00   ..D.......D....
+
+########## DISPATCH GATE ##########
+  base (ctx[0x28]) = 0x10062247c  (= normal_preview)
+  off  (job[0x8])  = 240  (0xf0)
+  target = base+off = 0x10062256c
+  flag_reveal       = 0x10062256c
+  >>>>> WIN: target == flag_reveal <<<<<
+###################################
+
+===== FT_Load_Glyph ENTER =====
+  face=0x945330000 glyph_index=2 load_flags=0x0  face_index=0x10000  IS_NAMED_INSTANCE=true   <-- needs TRUE to hit the GX_VAR OOB path
+[FT_Load_Glyph ret] 0x0
+  small allocs (<=64B) during load: 0
+  [no groomed job changed by this load]
+
+[render] ctx=0x9449b1e00  ctx[0x830]=job=0x944a5d1e0  (gPlantedJob=0x1006b4fb0  DIFFERENT)
+[render] job bytes: 944a5d1e0  f4 01 00 00 00 00 00 00 f0 00 00 00 00 00 00 00  ................
+944a5d1f0  f4 01 00 00 00 00 00 00 f0 00 00 00 00 00 00 00  ................
+944a5d200  14 01 00 00 00 00 00 00 4e 00 00 00 00 00 00 00  ........N.......
+944a5d210  80 ac d3 44 09 00 00 00 ff ff ff ff ff ff ff ff  ...D............
+
+########## DISPATCH GATE ##########
+  base (ctx[0x28]) = 0x10062247c  (= normal_preview)
+  off  (job[0x8])  = 240  (0xf0)
+  target = base+off = 0x10062256c
+  flag_reveal       = 0x10062256c
+  >>>>> WIN: target == flag_reveal <<<<<
+###################################
+
+===== FT_Load_Glyph ENTER =====
+  face=0x9451ecc00 glyph_index=2 load_flags=0x0  face_index=0x10000  IS_NAMED_INSTANCE=true   <-- needs TRUE to hit the GX_VAR OOB path
+[FT_Load_Glyph ret] 0x0
+  small allocs (<=64B) during load: 0
+  [no groomed job changed by this load]
+
+[render] ctx=0x9449b1e00  ctx[0x830]=job=0x944a5cb60  (gPlantedJob=0x1006b4fb0  DIFFERENT)
+[render] job bytes: 944a5cb60  f4 01 00 00 00 00 00 00 f0 00 00 00 00 00 00 00  ................
+944a5cb70  f4 01 00 00 00 00 00 00 f0 00 00 00 00 00 00 00  ................
+944a5cb80  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+944a5cb90  20 05 a6 44 09 00 00 00 e0 04 a6 44 09 00 00 00   ..D.......D....
+
+########## DISPATCH GATE ##########
+  base (ctx[0x28]) = 0x10062247c  (= normal_preview)
+  off  (job[0x8])  = 240  (0xf0)
+  target = base+off = 0x10062256c
+  flag_reveal       = 0x10062256c
+  >>>>> WIN: target == flag_reveal <<<<<
+###################################
