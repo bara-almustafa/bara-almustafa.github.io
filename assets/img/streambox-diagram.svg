@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" font-family="-apple-system,Segoe UI,Roboto,sans-serif">
+  <rect width="960" height="600" fill="#ffffff"/>
+  <style>
+    .lbl{font-size:13px;fill:#1f2430}.sm{font-size:11px;fill:#5b6472}
+    .mono{font-family:ui-monospace,Menlo,Consolas,monospace}
+    .title{font-size:15px;font-weight:700;fill:#0b1020}
+    .ok{fill:#e8f5e9;stroke:#43a047}.oob{fill:#ffebee;stroke:#e53935}
+    .job{fill:#fff3e0;stroke:#fb8c00}.neu{fill:#eef2f7;stroke:#90a4ae}
+    .win{fill:#e3f2fd;stroke:#1e88e5}
+    rect.box{rx:8;stroke-width:1.5}
+  </style>
+  <text x="24" y="30" class="title">StreamBox · CVE-2026-28618 — APV decoder OOB → session takeover</text>
+
+  <!-- 1 clip -->
+  <rect class="box neu" x="24" y="52" width="250" height="104"/>
+  <text x="36" y="74" class="lbl" font-weight="700">1 · Malicious .apv clip</text>
+  <text x="36" y="94"  class="sm mono">frame_width = 64</text>
+  <text x="36" y="110" class="sm mono">frame_height = 192  (&gt; 64!)</text>
+  <text x="36" y="126" class="sm mono">bit_depth = 16, qp = 28</text>
+  <text x="36" y="142" class="sm mono">auto-plays on arrival (0-click)</text>
+
+  <!-- 2 decode -->
+  <rect class="box neu" x="300" y="52" width="300" height="104"/>
+  <text x="312" y="74" class="lbl" font-weight="700">2 · oapvd_decode (bounds-checks removed)</text>
+  <text x="312" y="94"  class="sm mono">decode buffer: a[0]=arena,</text>
+  <text x="312" y="110" class="sm mono">stride 0x80, height 64</text>
+  <text x="312" y="126" class="sm mono">reconstructs rows from the</text>
+  <text x="312" y="142" class="sm mono">bitstream dims → rows rows ≥64 spillgt;64 spill</text>
+
+  <!-- 3 session -->
+  <rect class="box win" x="626" y="52" width="310" height="104"/>
+  <text x="638" y="74" class="lbl" font-weight="700">3 · Session struct (in-arena)</text>
+  <text x="638" y="94"  class="sm mono">@ arena + 0x2000 + sess_pad</text>
+  <text x="638" y="110" class="sm mono">+0x00  "STREAMBO"</text>
+  <text x="638" y="126" class="sm mono">+0x08  is_premium   (32-bit)</text>
+  <text x="638" y="142" class="sm mono">+0x0c  handler_index</text>
+
+  <path d="M274 104 L300 104" stroke="#90a4ae" stroke-width="2" marker-end="url(#a)"/>
+  <path d="M600 104 L626 104" stroke="#e53935" stroke-width="2.5" marker-end="url(#r)"/>
+
+  <!-- OOB write mapping -->
+  <text x="24" y="196" class="title">4 · The write — one 8×8 block's row R = Δ/0x80 reconstructs to:</text>
+  <g class="mono" font-size="12">
+    <rect class="box oob" x="24" y="212" width="912" height="56"/>
+    <text x="40"  y="236" fill="#5b6472">x0..x3</text><text x="40" y="252" fill="#5b6472">(magic, free)</text>
+    <text x="250" y="236" fill="#0b1020" font-weight="700">x4,x5 = token</text><text x="250" y="252" fill="#5b6472">-&gt; is_premium</text>
+    <text x="520" y="236" fill="#0b1020" font-weight="700">x6,x7 = 2,0</text><text x="520" y="252" fill="#5b6472">-&gt; handler_index = 2</text>
+    <text x="770" y="236" fill="#5b6472">bit_depth 16:</text><text x="770" y="252" fill="#5b6472">word=0x8000+recon</text>
+  </g>
+
+  <!-- gate -->
+  <rect class="box win" x="24" y="300" width="450" height="110"/>
+  <text x="36" y="322" class="lbl" font-weight="700">5 · Post-decode gate</text>
+  <text x="36" y="346" class="sm mono">if (session.is_premium == g_token)</text>
+  <text x="36" y="364" class="sm mono">  if (session.handler_index &lt; 3)</text>
+  <text x="36" y="382" class="sm mono">    g_handlers[handler_index]();</text>
+  <text x="36" y="400" class="sm mono" fill="#1e88e5" font-weight="700">    g_handlers[2] == win()  → FLAG</text>
+
+  <!-- gotchas -->
+  <rect class="box job" x="500" y="300" width="436" height="110"/>
+  <text x="512" y="322" class="lbl" font-weight="700">Two device-only gotchas</text>
+  <text x="512" y="346" class="sm">“things move”: sess_pad re-randomizes every</text>
+  <text x="512" y="362" class="sm mono">decode -&gt; spray the block at all 16 rows</text>
+  <text x="512" y="384" class="sm">device itx stores s16 with WRAP (x86 saturates)</text>
+  <text x="512" y="400" class="sm mono">-&gt; place each column exactly in its bucket</text>
+
+  <!-- root cause -->
+  <text x="24" y="452" class="sm">Root cause: upstream <tspan class="mono">dec_frm_prepare</tspan> rejects an imgb/bitstream dimension mismatch (oapv.c:1780) and validates plane</text>
+  <text x="24" y="470" class="sm">capacity (oapv.c:1804). The lab build deleted both, so the reconstruction writes wherever the bitstream says — straight into the session.</text>
+
+  <text x="24" y="520" class="sm" fill="#1e88e5" font-weight="700">Result: one ~800-byte clip -&gt; is_premium = token, handler_index = 2 → win() → the lab server releases the flag via /api/unlock.</text>
+
+  <defs>
+    <marker id="a" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 z" fill="#90a4ae"/></marker>
+    <marker id="r" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 z" fill="#e53935"/></marker>
+  </defs>
+</svg>
