@@ -27,9 +27,7 @@ context they can be used individually or combined to achieve different objective
 
 ![MASTG and MASVS]({{ '/assets/img/photo1.png' | relative_url }})
 
- #  the MASVS categories 
-
-
+ # the MASVS categories 
 1. Data Storage and Privacy (MASVS-STORAGE)
 2. Cryptography (MASVS-CRYPTO)
 3. Authentication and Authorization (MASVS-AUTH)
