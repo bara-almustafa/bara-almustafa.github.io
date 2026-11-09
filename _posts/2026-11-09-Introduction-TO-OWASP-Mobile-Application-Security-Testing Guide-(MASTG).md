@@ -26,10 +26,7 @@ and consumers to define and understand the qualities of a secure mobile app. The
 Testing Guide (MASTG) maps to the same basic set of security requirements offered by the MASVS and depending on the
 context they can be used individually or combined to achieve different objectives.==
 
-<p align="center">
-  <img src="{{ '/assets/img/photo1.png' | relative_url }}" alt="MASTG and MASVS " width="640">
-</p>
-
+![MASTG and MASVS]({{ '/assets/img/photo1.png' | relative_url }})
 
  #  the MASVS categories 
 
