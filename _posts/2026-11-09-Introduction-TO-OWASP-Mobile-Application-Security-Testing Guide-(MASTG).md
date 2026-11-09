@@ -11,9 +11,7 @@ tags: [android, ios, mastg, mobile, mobile pentration test , Guide ]
 # Introduction TO OWASP Mobile Application Security Testing Guide (MASTG)
 
 
-<p align="center">
-  <img src="{{ '/assets/img/photo1.png' | relative_url }}" alt="MASTG Cover Page" width="640">
-</p>
+![MASTG Cover Page]({{ '/assets/img/images.png' | relative_url }})
 
 Introduction to the OWASP Mobile Application
 Security Project
