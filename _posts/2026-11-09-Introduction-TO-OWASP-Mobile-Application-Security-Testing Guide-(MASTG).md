@@ -12,7 +12,7 @@ tags: [android, ios, mastg, mobile, mobile pentration test , Guide ]
 
 
 <p align="center">
-  <img src="{{ '/assets/img/images.png' | relative_url }}" alt="MASTG Cover Page" width="640">
+  <img src="{{ 'assets/img/photo1.png' | relative_url }}" alt="MASTG Cover Page" width="640">
 </p>
 
 Introduction to the OWASP Mobile Application
