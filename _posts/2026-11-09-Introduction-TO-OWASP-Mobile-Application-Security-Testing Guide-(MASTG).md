@@ -13,9 +13,8 @@ tags: [android, ios, mastg, mobile, mobile pentration test , Guide ]
 
 ![MASTG Cover Page]({{ '/assets/img/images.png' | relative_url }})
 
-Introduction to the OWASP Mobile Application
-Security Project
-==New technology always introduces new security risks, and mobile computing is no exception. Security concerns for mobile
+## Introduction to the OWASP Mobile Application Security Project
+== New technology always introduces new security risks, and mobile computing is no exception. Security concerns for mobile
 apps differ from traditional desktop software in some important ways. Modern mobile operating systems are arguably
 more secure than traditional desktop operating systems, but problems can still appear when we don’t carefully consider
 security during mobile app development. Data storage, inter-app communication, proper usage of cryptographic APIs,
@@ -24,7 +23,7 @@ The OWASP Mobile Application Security Verification Standard (MASVS) defines a mo
 generic security requirements for mobile apps. It can be used by architects, developers, testers, security professionals,
 and consumers to define and understand the qualities of a secure mobile app. The OWASP Mobile Application Security
 Testing Guide (MASTG) maps to the same basic set of security requirements offered by the MASVS and depending on the
-context they can be used individually or combined to achieve different objectives.==
+context they can be used individually or combined to achieve different objectives. ==
 
 ![MASTG and MASVS]({{ '/assets/img/photo1.png' | relative_url }})
 
