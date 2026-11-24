@@ -113,10 +113,10 @@ Repository Used : github.com/aas-n/reauthx.
 # Credits and references
 I am not the person who did the hard work here. I connected dots that others drew, and I am small next to the researchers who actually move this field. Thanks in particular to:
 
-mad31k for originally reporting this bug to MSRC.
-Raj Patel (SpecterOps), for the LDAP Switcheroo, the same idea carried to LDAP signing.
-NeffIsBack and ThatTotallyRealMyth, for the spec reading that sharpened how key retention and the missing identity check should be told apart.
-Dirk-jan Mollema, for krbrelayx, which this forks.
-Synacktiv, for the modern authentication reflection analysis.
-SySS, Semperis, for the research this note leans on.
-and blackfield for post 
+1. mad31k for originally reporting this bug to MSRC.
+2. Raj Patel (SpecterOps), for the LDAP Switcheroo, the same idea carried to LDAP signing.
+3. NeffIsBack and ThatTotallyRealMyth, for the spec reading that sharpened how key retention and the missing identity check should be told apart.
+4. Dirk-jan Mollema, for krbrelayx, which this forks.
+4. Synacktiv, for the modern authentication reflection analysis.
+5. SySS, Semperis, for the research this note leans on.
+6. and blackfield for  original post 
