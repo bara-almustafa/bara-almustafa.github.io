@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Bypassing SMB Signing with note"
-date: 2026-10-05
+date: 2026-11-24
 author: 0xcybersoldier
 tags: [active-directory, ad, SMB, bloodyAD, coerce_name , krbrelayx , PetitPotam  ]
 ---
@@ -77,7 +77,7 @@ What follows is an example. Two low-privilege domain accounts the attacker contr
 |----------|------------------------------------|------------|-----------------------------------------------------|
 | DC01     | Windows Server 2022                | 10.0.0.5   | AD DS + AD-integrated DNS                           |
 | FS01     | Windows Server 2022 (member)       | 10.0.0.10  | Domain-joined, SMB signing required                 |
-| Attacker | Kali / Debian Linux                | 10.0.0.50  | impacket, NetExec, PetitPotam, bloodyAD             |
+| Attacker | Kali / Debian Linux                | 10.0.0.1  | impacket, NetExec, PetitPotam, bloodyAD             |
 
 1. Recon - the one precondition to confirm first is that the target enforces SMB signing (signing:True in both outputs below). That is the wall this technique walks through; if signing were not enforced, a plain relay would already work and none of this would be needed. The NetExec module checks viability directly, and patchcheck.py then places the host in the patch window - here the first patch (CVE-2025-33073) is already in, so the CMTI name is dead and the coercion goes through a Unicode confusable name instead.
 
