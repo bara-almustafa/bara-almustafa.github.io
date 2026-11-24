@@ -7,7 +7,9 @@ tags: [active-directory, ad, SMB, bloodyAD, coerce_name , krbrelayx , PetitPotam
 ---
 
 Hello everyone today we will talk about Bypassing  SMB Signing with note . 
-so before what is SMB Singing ? 
+so before what is SMB Singing ?
+
+
 SMB signing is the mitigation everyone recommends against the whole relay class of attacks (NTLM or Kerberos)
 
 ![SMB Signing Prevention Workflow]({{'assets/img/smb-signing.jfif' | relative_url}})
