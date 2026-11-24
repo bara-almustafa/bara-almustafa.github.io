@@ -73,7 +73,7 @@ Two small things, for authorized testing only:
 
 
 
-What follows is an example. Two low-privilege domain accounts the attacker controls: user1 does the real work (recon, the DNS record on the DC, the coercion, and the relay’s base session); user2 is only the second identity the step 1 viability check needs to test the cross-user swap. The target is FS01 at 10.0.0.10; the DC that holds the AD-integrated DNS zone is at 10.0.0.5; the relay listens on 10.0.0.50.
+What follows is an example. Two low-privilege domain accounts the attacker controls: user1 does the real work (recon, the DNS record on the DC, the coercion, and the relay’s base session); user2 is only the second identity the step 1 viability check needs to test the cross-user swap. The target is FS01 at 10.0.0.10; the DC that holds the AD-integrated DNS zone is at 10.0.0.5; the relay listens on 10.0.0.1.
 
 | Role     | OS                                 | IP         | Notes                                              |
 |----------|------------------------------------|------------|-----------------------------------------------------|
